@@ -2,12 +2,14 @@ class Particle {
   constructor(x, y) {
     this.pos = createVector(x, y);
     this.prevPos = createVector(this.pos.x, this.pos.y);
+    // this.vel = createVector();
     this.vel = p5.Vector.random2D();
     this.acc = createVector();
+    this.opacity = 100;
     this.colors = [
-      color(0, 255, 0, 15),
-      color(0, 0, 255, 15),
-      color(255, 0, 0, 15),
+      color(0, 255, 0, this.opacity),
+      color(0, 0, 255, this.opacity),
+      color(255, 0, 0, this.opacity),
     ];
     this.color = random(this.colors);
   }
@@ -21,7 +23,7 @@ class Particle {
 
   show() {
     push();
-    stroke(255, 15);
+    stroke(this.color);
     strokeWeight(4);
     line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.prevPos.x = this.pos.x;
@@ -42,9 +44,9 @@ class Particle {
     const gravity = 10;
     const strength = gravity / d;
 
-    if (distance <= 100) {
-      direction.mult(-1);
-    }
+    // if (distance <= 100) {
+    //   direction.mult(-1);
+    // }
     direction.setMag(strength);
     this.acc.add(direction);
   }
