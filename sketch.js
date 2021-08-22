@@ -16,12 +16,12 @@ function setup() {
   for (let i = 0; i < 1; i++) {
     // attractors.push(new Attractor(width / 2, height / 2));
   }
-  background(0);
-  // DRAWS BACKGROUND STARS
-  drawBackground();
 }
 
 function draw() {
+  background(0, 100);
+  // DRAWS BACKGROUND STARS
+  drawBackground();
   for (let i = 0; i < attractors.length; i++) {
     const attractor = attractors[i];
     attractor.show();
